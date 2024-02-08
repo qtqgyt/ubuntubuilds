@@ -30,7 +30,9 @@ jobs:
           sudo sed -i 's/^# deb-src/deb-src/' /etc/apt/sources.list
           sudo apt update
           apt source base-files
-      - name: Build Package
+      - name: Install Build Dependencies
         run: |
+          sudo apt install build-essential devscripts debhelper -y
           sudo apt-get build-dep base-files -y
-          debuild -us -uc
+      - name: Build Package
+        run: debuild -us -uc
