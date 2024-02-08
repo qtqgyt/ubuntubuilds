@@ -31,12 +31,15 @@ jobs:
           sudo apt update
           pwd
           apt source base-files
+          ls
       - name: Install Build Dependencies
         run: |
           sudo apt install build-essential devscripts debhelper -y
           cd base-files
           sudo apt-get build-dep base-files -y
+          ls
       - name: Build Package
         run: |
           cd base-files
+          ls
           debuild -us -uc
