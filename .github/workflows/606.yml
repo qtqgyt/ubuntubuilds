@@ -29,6 +29,7 @@ jobs:
           cd base-files
           sudo sed -i 's/^# deb-src/deb-src/' /etc/apt/sources.list
           sudo apt update
+          pwd
           apt source base-files
       - name: Install Build Dependencies
         run: |
