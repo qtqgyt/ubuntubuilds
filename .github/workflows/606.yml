@@ -41,5 +41,6 @@ jobs:
       - name: Build Package
         run: |
           cd base-files
+          cd $(ls -d */)
           ls
           debuild -us -uc
