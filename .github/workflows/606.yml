@@ -33,6 +33,9 @@ jobs:
       - name: Install Build Dependencies
         run: |
           sudo apt install build-essential devscripts debhelper -y
+          cd base-files
           sudo apt-get build-dep base-files -y
       - name: Build Package
-        run: debuild -us -uc
+        run: |
+          cd base-files
+          debuild -us -uc
