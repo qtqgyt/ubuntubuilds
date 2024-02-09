@@ -44,3 +44,5 @@ jobs:
           cd $(ls -d */)
           ls
           debuild -us -uc
+          ls
+          ls ../
