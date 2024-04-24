@@ -53,4 +53,4 @@ jobs:
         uses: actions/upload-artifact@v4.3.3
         with:
           name: "base-files"
-          path: "*.deb"
+          path: "base-files/*.deb"
