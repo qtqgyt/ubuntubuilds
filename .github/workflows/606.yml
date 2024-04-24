@@ -46,6 +46,8 @@ jobs:
           debuild -us -uc
           ls
           ls ../
+          echo eeeeee
+          ls
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.3.3
