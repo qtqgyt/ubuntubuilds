@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Ubuntu 6.06
+name: Ubuntu 22.04
 
 # Controls when the workflow will run
 on:
@@ -29,27 +29,19 @@ jobs:
           cd base-files
           sudo sed -i 's/^# deb-src/deb-src/' /etc/apt/sources.list
           sudo apt update
-          pwd
           apt source base-files
-          ls
       - name: Install Build Dependencies
         run: |
           sudo apt install build-essential devscripts debhelper -y
           cd base-files
           sudo apt-get build-dep base-files -y
-          ls
       - name: Build Package
         run: |
           cd base-files
           cd $(ls -d */)
-          ls
           debuild -us -uc
-          ls
-          ls ../
-          echo eeeeee
-          ls
 
-      - name: Upload a Build Artifact
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4.3.3
         with:
           name: "base-files"
